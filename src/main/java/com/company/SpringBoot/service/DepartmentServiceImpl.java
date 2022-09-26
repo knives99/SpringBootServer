@@ -52,4 +52,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return departmentRepository.save(depDB);
     }
+
+    @Override
+    public Department fetchDepartmentsByName(String depatrmentName) {
+        return departmentRepository.findByDepartmentName(depatrmentName);
+        //                          //QueryCreation 可藉由一些特殊關鍵字來產生對應的查詢語句
+
+    }
 }

@@ -1,9 +1,13 @@
 package com.company.SpringBoot.entity;
 
+import net.bytebuddy.build.Plugin;
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 //創造Orm實例
 @Entity
@@ -14,6 +18,18 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long departmenId;
+    @NotBlank(message = "Please Add Deapartment Name")
+    @Length(max = 5,min = 1)
+    @Size(max = 10,min = 0)
+    @Email
+    @Positive
+    @Negative
+    @PositiveOrZero
+    @NegativeOrZero
+    // Future-被註釋的屬性必須為一個未來的日期
+    @Future
+    @FutureOrPresent
+    //dependency-validation的防呆
     private  String departmentName;
     private String departmentAddress;
 
@@ -70,8 +86,5 @@ public class Department {
     public void setDepartmentCode(String departmentCode) {
         this.departmentCode = departmentCode;
     }
-
-
-
 
 }

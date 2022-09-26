@@ -2,9 +2,12 @@ package com.company.SpringBoot.controller;
 
 import com.company.SpringBoot.entity.Department;
 import com.company.SpringBoot.service.DepartmentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,10 +16,12 @@ public class DepartmentController {
 
     @Autowired
     private  DepartmentService departmentService;
+    private  final Logger LOGGER =  LoggerFactory.getLogger(DepartmentController.class);
 
     //CRUD-Read
     @GetMapping("/departments")
     public List<Department> fetchDepartments(){
+        LOGGER.info("Inside saveDepartment of DepartmentController");
         return  departmentService.fetchDepartments();
     }
 
@@ -24,6 +29,7 @@ public class DepartmentController {
     @GetMapping("/departments/{id}")
     public Department fetchDepartmentsById(@PathVariable("id") Long departmentId){
         //                                 從Path獲取變數
+        LOGGER.info("Inside saveDepartment of DepartmentController");
         return  departmentService.fetchDepartmentsById(departmentId);
     }
 
@@ -31,8 +37,9 @@ public class DepartmentController {
 
     //CRUD-Create
     @PostMapping("/departments")
-    public Department saveDepartment(@RequestBody Department department){
+    public Department saveDepartment(@Valid @RequestBody Department department){
         //                           @RequestBody  自動把Json的request套入實例(省去decode)
+        //                           @Valid 為validation dependcy 的防呆機制 可看Department Class -deaprtmentName
 
         return departmentService.saveDepartment(department);
     }
@@ -53,7 +60,8 @@ public class DepartmentController {
         return  "Department deleated Successfully";
     }
 
-
-
-
+    @GetMapping("/departments/name/{name}")
+    public  Department fetchDepartmentByName(@PathVariable("name") String depatrmentName){
+        return  departmentService.fetchDepartmentsByName(depatrmentName);
+    }
 }
