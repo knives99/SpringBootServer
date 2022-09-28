@@ -14,7 +14,8 @@ public class HelloController {
     private  String welcomeMessage ;
 
     //兩種Mapping方法 Get寫法比較簡潔
-//    @GetMapping("/")
+    //@GetMapping("/")
+    //參數有 value mathod consums produces headers params
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String helloWorld(){
         return  welcomeMessage;

@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
+//表現層：主要負責接收用戶請求、轉發請求、產生數據並返回結果。
+//@Controller : 宣告這是SpringMVC Controller 物件，用於標記控制器層。
+// @RestController = @Controller + @RequestBody
 @RestController
 public class DepartmentController {
 
@@ -50,7 +54,7 @@ public class DepartmentController {
     //CRUD-Update
     @PutMapping("/departments/{id}")
     public  Department updateDepartment(@PathVariable("id") Long departmentID,@RequestBody Department department){
-
+        //  @RequestBody : 常用來處理application/json、application/xml 等Content-Type 類型的資料將其轉化為指定類型參數。
         return departmentService.updateDepartment(departmentID,department);
     }
 

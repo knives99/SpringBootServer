@@ -11,11 +11,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+
+//業務邏輯層:針對具體問題的操作，主要是從資料庫中取得數據並對數據進行邏輯處理。
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
     @Autowired
     private DepartmentRepository departmentRepository;
+    //@Override : 表示此方法覆寫了父類別的方法。
     @Override
     public Department saveDepartment(Department department) {
         return departmentRepository.save(department);
