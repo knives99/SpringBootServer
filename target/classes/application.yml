@@ -1,0 +1,52 @@
+#yaml比起properties易讀性更高
+
+server:
+  port: 8087
+  welcome:
+    message: Welcome to Daily Code Buffer!!
+#初始環境設定 active對應到下面的配置
+spring:
+  profiles:
+    active: dev
+
+
+#DEV環境配置
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-dev
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    activate:
+      on-profile: dev
+#  管理 Actuator expose all the end point.
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+          exclude: "env,beans"
+
+
+
+#PROD環境配置
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    activate:
+      on-profile: prod

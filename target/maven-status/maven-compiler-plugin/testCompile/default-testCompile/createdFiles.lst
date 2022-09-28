@@ -1,1 +1,4 @@
-com/company/SpringBootFramework5/SpringBootFramework5ApplicationTests.class
+com/company/SpringBoot/controller/DepartmentControllerTest.class
+com/company/SpringBoot/SpringBootFramework5ApplicationTests.class
+com/company/SpringBoot/repository/DepartmentRepositoryTest.class
+com/company/SpringBoot/service/DepartmentServiceTest.class

@@ -1,1 +1,4 @@
-/Users/dt/Documents/1-project/java/SpringBootFramework5/src/test/java/com/company/SpringBootFramework5/SpringBootFramework5ApplicationTests.java
+/Users/dt/Documents/1-project/java/SpringBootServer/src/test/java/com/company/SpringBoot/SpringBootFramework5ApplicationTests.java
+/Users/dt/Documents/1-project/java/SpringBootServer/src/test/java/com/company/SpringBoot/controller/DepartmentControllerTest.java
+/Users/dt/Documents/1-project/java/SpringBootServer/src/test/java/com/company/SpringBoot/repository/DepartmentRepositoryTest.java
+/Users/dt/Documents/1-project/java/SpringBootServer/src/test/java/com/company/SpringBoot/service/DepartmentServiceTest.java

@@ -1,6 +1,7 @@
 package com.company.SpringBoot.controller;
 
 import com.company.SpringBoot.entity.Department;
+import com.company.SpringBoot.error.DepartmentNotFoundException;
 import com.company.SpringBoot.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +23,12 @@ public class DepartmentController {
     @GetMapping("/departments")
     public List<Department> fetchDepartments(){
         LOGGER.info("Inside saveDepartment of DepartmentController");
-        return  departmentService.fetchDepartments();
+        return  departmentService.fetchDepartmentList();
     }
 
 
     @GetMapping("/departments/{id}")
-    public Department fetchDepartmentsById(@PathVariable("id") Long departmentId){
+    public Department fetchDepartmentsById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         //                                 從Path獲取變數
         LOGGER.info("Inside saveDepartment of DepartmentController");
         return  departmentService.fetchDepartmentsById(departmentId);
